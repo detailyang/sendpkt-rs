@@ -1,0 +1,33 @@
+language: rust
+sudo: true
+os:
+  - linux
+  - osx
+  - windows
+dist: focal
+arch:
+    - amd64
+rust:
+  - stable
+matrix:
+  allow_failures:
+    - rust: nightly
+  fast_finish: true
+jobs:
+  fast_finish: true
+
+install:
+  - cargo test
+  - cargo build --release
+before_deploy:
+  - mv target/release/sendpkt "target/release/sendpkt-$TRAVIS_OS_NAME-$TRAVIS_CPU_ARCH"
+deploy:
+  - provider: releases
+    api_key: "$GH_TOKEN"
+    skip_cleanup: true
+    on:
+      tags: false
+      condition: "$TRAVIS_RUST_VERSION = stable"
+      branch: master
+    file_glob: true # <-- note this new field
+    file: target/release/sendpkt-*  # <-- note the `-*`

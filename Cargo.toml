@@ -1,0 +1,19 @@
+[package]
+name = "sendpkt-rs"
+version = "0.1.0"
+authors = ["detailyang <detailyang@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+bench = false
+path = "src/main.rs"
+name = "sendpkt"
+
+[dependencies]
+pnet_packet = "0.26.0"
+pnet_macros_support = "0.26.0"
+rand = "0.7.3"
+structopt = "0.3"
+pnet_transport = "0.26.0"
