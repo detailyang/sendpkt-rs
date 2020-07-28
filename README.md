@@ -9,11 +9,11 @@
    <b>sendpkt-rs send the TCP Packet from cli</b>
 </p>
 
-# purpose
+# Purpose
 
 kill the quiet TCP connection (CLOSE-WAIT status) by sending the RST segment.
 
-# sendpkt-rs
+# Sendpkt-rs
 
 sendpkt-rs is a command line tool to send TCP Packet with specified option as the following:
 
@@ -45,7 +45,12 @@ OPTIONS:
         --tcp-window <tcp-window>
 ```
 
-# requirements
+# Install
+
+1. cargo install sendpkt-rs
+2. Download the binary from [sendpkt-rs/releases](https://github.com/detailyang/sendpkt-rs/releases)
+
+# Requirements
 You have must WinPcap or npcap installed which is [libpnet](https://github.com/libpnet/libpnet) required.
 
 
