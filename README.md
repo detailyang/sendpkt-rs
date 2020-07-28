@@ -54,7 +54,7 @@ OPTIONS:
 You have must WinPcap or npcap installed which is [libpnet](https://github.com/libpnet/libpnet) required.
 
 
-### usage
+# Usage
 
 ## send rst packet
 ```bash
