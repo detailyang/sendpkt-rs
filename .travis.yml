@@ -15,11 +15,13 @@ matrix:
   fast_finish: true
 jobs:
   fast_finish: true
-
+compiler:
+  	- gcc
+  	- musl-gcc
 install:
   - rustup target add x86_64-unknown-linux-musl
   - cargo test
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cargo build --release --target x86_64-unknown-linux-musl; else cargo build --release;fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cargo build --release --target x86_64-unknown-linux-musl; else cargo build --release;fi
 before_deploy:
   - mv target/release/sendpkt "target/release/sendpkt-$TRAVIS_OS_NAME-$TRAVIS_CPU_ARCH"
 deploy:
