@@ -18,7 +18,7 @@ jobs:
 
 install:
   - cargo test
-  - cargo build --release
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cargo build --release --target x86_64-unknown-linux-musl; else cargo build --release;fi
 before_deploy:
   - mv target/release/sendpkt "target/release/sendpkt-$TRAVIS_OS_NAME-$TRAVIS_CPU_ARCH"
 deploy:
