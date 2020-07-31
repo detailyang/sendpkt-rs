@@ -16,8 +16,8 @@ matrix:
 jobs:
   fast_finish: true
 compiler:
-  	- gcc
-  	- musl-gcc
+  - gcc
+  - musl-gcc
 install:
   - rustup target add x86_64-unknown-linux-musl
   - cargo test
