@@ -20,6 +20,7 @@ compiler:
   - musl-gcc
 install:
   - rustup target add x86_64-unknown-linux-musl
+  - sudo apt-get install -y musl-tools musl
   - cargo test
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cargo build --release --target x86_64-unknown-linux-musl; else cargo build --release;fi
 before_deploy:
