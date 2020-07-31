@@ -24,7 +24,7 @@ install:
   - cargo test
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cargo build --release --target x86_64-unknown-linux-musl; else cargo build --release;fi
 before_deploy:
-  - mv target/release/sendpkt "target/release/sendpkt-$TRAVIS_OS_NAME-$TRAVIS_CPU_ARCH"
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then mv target/x86_64-unknown-linux-musl/release/sendpkt "target/release/sendpkt-$TRAVIS_OS_NAME-$TRAVIS_CPU_ARCH";else mv target/release/sendpkt "target/release/sendpkt-$TRAVIS_OS_NAME-$TRAVIS_CPU_ARCH"; fi
 deploy:
   - provider: releases
     api_key: "$GH_TOKEN"
