@@ -21,3 +21,6 @@ pnet_macros_support = "0.26.0"
 rand = "0.7.3"
 structopt = "0.3"
 pnet_transport = "0.26.0"
+
+[build]
+rustflags = ["-C target-feature=+crt-static"]
